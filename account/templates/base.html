@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}<title>Title</title>{% endblock %}
+     {% load staticfiles %}
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<h2>My Network</h2>
+<ol class="breadcrumb">
+    <li><a href="{% url 'home:home' %}">Home</a></li>
+    {% if not request.user.is_authenticated %}
+    <li class="pull-right"><a href="{% url 'account:register' %}">Register</a></li>
+    <li class = 'pull-right'><a href="{% url 'account:login' %}">Login</a></li>
+
+    {% else %}
+    <li><a href="{% url 'account:user_list' %}">Find Friend</a></li>
+    <li class="pull-right"><a href="{% url 'account:logout' %}">Logout</a></li> /
+    <li class="pull-right"><a href="{% url 'account:profile' %}">My Profile</a></li>
+    {% endif %}
+</ol>
+
+
+
+
+
+
+{% block content %}
+
+
+{% endblock %}
+    </div>
+</body>
+</html>

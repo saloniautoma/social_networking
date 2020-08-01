@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}<title>Account homepage</title>{% endblock %}
+
+{% block content %}
+
+    <p class="pull-right row">
+        Welcome
+        <a href="{% url 'account:profile' %}">{{user}}</a> /
+        <a href="{% url 'account:edit_profile' %}">Edit Profile</a> /
+        <a href="{% url 'account:change_password' %}">Change Password</a> /
+        <a href="{% url 'account:delete' user.id %}">Delete Profile</a>
+    </p>
+    <div class="col-md-4">
+    <h4>Profile</h4>
+    {% if user.userprofile.image %}
+    <img src="{{user.userprofile.image.url}}" class="img-responsive" height="200px" width="200px"/>
+    {%endif%}
+    <p>Username: {{user.username}}</p>
+    <p>Name: {{user.first_name}} {{user.last_name}}</p>
+    <p>E-mail: {{user.email}}</p>
+    <p>About: {{user.userprofile.discription}}</p>
+    <p>City: {{user.userprofile.city}}</p>
+    <p>Website: <a href="{{user.userprofile.website}}" target="_blank">{{user.userprofile.website}}</a></p>
+    <p>Mobile: {{user.userprofile.phone}}</p>
+
+
+</div>
+{% endblock %}

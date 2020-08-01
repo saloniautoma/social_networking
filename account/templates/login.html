@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block head %}<title>Login Here</title>{% endblock %}
+{% block content %}
+<h3>You can log in here.</h3>
+<form method="post">
+    {% csrf_token %}
+    {% load crispy_forms_tags %}
+    {{form | crispy}}
+    <br>
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}
