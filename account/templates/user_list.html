@@ -1,20 +1,13 @@
 {% extends 'base.html' %}
 {% block head %}<title>User List</title>{% endblock %}
 {% block content %}
-<<<<<<< HEAD
 {% if request.user.is_authenticated %}
-=======
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
 <p class="pull-right">
         Welcome
         <a href="{% url 'account:profile' %}">{{user}}</a> /
         <a href="{% url 'account:edit_profile' %}">Edit Profile</a> /
         <a href="{% url 'account:change_password' %}">Change Password</a>
-<<<<<<< HEAD
     </p>{% endif %}
-=======
-    </p>
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
 <h3 class="text-center">Find Friends</h3><hr>
 <form method="get" action="" class="pull-right">
 
